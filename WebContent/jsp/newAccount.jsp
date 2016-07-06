@@ -109,7 +109,7 @@ function validateForm(){
     <form:input class="form-control input-sm" readonly="true" path="accountNo"/>
     </div>
   </div>
- 
+  
   
  <div class="form-group">
     <label class="col-sm-2 control-label" for="Account Name">Account Name</label>

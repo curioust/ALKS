@@ -1,6 +1,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ include file="commons/include.jsp"%>
+</style>
+<!-- bootstrap widget theme -->
+<link rel="stylesheet" href="../css/theme.bootstrap.css">
 
 <script type="text/javascript">
 function confirmUpdate(accountNumber,flag){
@@ -123,12 +126,13 @@ function doStuff() {
 //str1.toLowerCase().contains(str2.toLowerCase())
 </script>   -->
 
+<div class="well">
 
 <form:form id="AccountForm" method="get"
 	modelAttribute="account">
-<table class="table table-hover table-striped">
+<table id="myTable" class="table table-hover tablesorter">
 	<thead>
-		<tr class='heading'> <th> AWS Account </th><th> Details </th> <th> Status Toggle </th> <th> Last Modified </th> </tr>
+		<tr class='heading'> <th> AWS Account </th><th> Details </th> <th class="sorter-false"> Status Toggle </th> <th> Last Modified </th> </tr>
 	</thead>
 	<tbody id="accountsBody">
 		<c:forEach items="${accountsToSearch}" var="account" begin="0" end="${fn:length(accounts)}" varStatus="loopStatus">
@@ -191,4 +195,5 @@ function doStuff() {
 
 <form:hidden path="accountNo" id="account"/>
 <form:hidden path="flag" id="flag"/>
-</form:form> 
+</form:form>
+</div>

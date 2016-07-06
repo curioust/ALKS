@@ -135,10 +135,73 @@ Add AD Group relation screen
 
 ![Screen Shot AD Group Relation ](/images/add_adg.png)
 
+###REST
+
+Use SOAPUI to test 
+
+POST https://alks.hostname.com/rest/getADGroups/ HTTP/1.1
+Accept-Encoding: gzip,deflate
+Content-Type: application/json
+Content-Length: 191
+Host: alks.hostname.com
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.1.1 (java 1.5)
+{
+                "userid": "userid",
+                "password": “password…."
+}
+ 
+Output will be xml something like 
+<keyservice>
+   <input>system id/password</input>
+   <output>[AWSG_MGMT-CE, AWSG_MGMT_Net, AWSG_LABS3-AppSup, AWSG_LABS1-AppSup, AWSG_ADMIN_AS, AWSG_MGMT_Admi, AWSG_Adins]</output>
+</keyservice>
+ 
+ 
+POST https://alks.hostname.com/rest/getAccounts/ HTTP/1.1
+Accept-Encoding: gzip,deflate
+Content-Type: application/json
+Content-Length: 191
+Host: alks.hostname.com
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.1.1 (java 1.5)
+{
+                "userid": "userid",
+                "password": “password…..",
+     			"adGroup":"AWSG_MGMT_Network"
+}
+ 
+Output will be xml something like
+<keyservice>
+   <input>
+      system id/password
+      <adgroup>AWSG_MGMT_Net</adgroup>
+   </input>
+   <output>
+      <adgroups>[AWSG_MGMT-CE, AWSG_MGMT_Net, AWSG_LABS3-AppSup, AWSG_LABS1-AppSup, AWSG_ADMIN_ALKS, AWSG_Admins]</adgroups>
+      <accounts>{701223540795/alkstest - awscoxautolabs6=[IAM-1-AdministratorAccessRole-14TL3M9NH3LT2], 044022212472/svcALKSNPCloudEnggDelete - coxatmgmtnp=[IAM-1-CloudEngineerAccessRole-7PSHH2KWSAIV], 052360345452/alks_admin - awscoxautolabs1=[IAM-1-AdministratorAccessRole-5PKHH2KWSAIV]}</accounts>
+   </output>
+</keyservice>
+
+Endpoint: https://alks.hostname.com/rest/getKeys/
+method: POST
+Input JSON: 
+{
+"userid": “UserId",
+"password": “*******",
+"account":"193118345547/ALKS_NP_Admin - awscoxautolabs237",
+"role":"IAM-1-AdministratorAccessRole-1E8MG25AGPEPH",
+"sessionTime”:2
+}
+![Screen Shot Add ARP ](/images/ALKS_REST.png)
+
+ 
 
 Additional Tips and customizations
 1. Convert to a Maven project
 2. Userid's created for the long term keys should not have '-' as this is used as a delimiter for display purposes
+
+
 
 ###References 
 

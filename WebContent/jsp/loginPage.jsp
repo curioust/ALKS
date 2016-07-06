@@ -12,7 +12,8 @@ function submitForm(event) {
 <!-- 	<h2 class="form-signin-heading">Login Form</h2> -->
 <form:form class="form-signin" id="loginForm" action="../login/validate.htm" method="POST" modelAttribute="user">
 <h2 class="form-signin-heading" align="center">Please Login</h2>
-<form:input class="form-control" path="emailId"  placeholder="Email" />
+<form:input class="form-control" path="emailId" pattern="[^'\x22@]+"  title="Please enter your network id" placeholder="Username" />
+Example: fmlastname 
 <br>
 <form:password class="form-control" path="password" onKeyUp="submitForm(event)"  placeholder="Password"/><br>
 		

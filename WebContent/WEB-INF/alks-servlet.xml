@@ -12,13 +12,14 @@ http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
 	<!-- Add component scan to check package for any @Controller And @Service -->
 	<context:component-scan base-package=
-	"com.alks.controller,
-	 com.alks.service,
-	 com.alks.service.config,
-	 com.alks.model" />
-		
+	"com.coxautoinc.cia.alks.controller,
+	 com.coxautoinc.cia.alks.service,
+	 com.coxautoinc.cia.alks.service.config,
+	 com.coxautoinc.cia.alks.model" />
+	
 	<mvc:default-servlet-handler/>
 	<mvc:annotation-driven />
+	
 	
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.UrlBasedViewResolver">

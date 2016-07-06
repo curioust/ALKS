@@ -1,15 +1,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>alksv2</groupId>
-	<artifactId>alksv2</artifactId>
+	<groupId>alks</groupId>
+	<artifactId>alks</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-
 	<properties>
 		<spring.version>4.1.6.RELEASE</spring.version>
 		<spring.security.version>3.2.6.RELEASE</spring.security.version>
+		<jackson.version>2.5.3</jackson.version>
 	</properties>
-
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -74,12 +73,13 @@
 			<artifactId>junit</artifactId>
 			<version>4.8.1</version>
 		</dependency>
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.17</version>
-		</dependency>
-
+   <dependency>
+    <groupId>sample</groupId>
+    <artifactId>com.sample</artifactId>
+    <version>1.0</version>
+    <scope>system</scope>
+    <systemPath>${project.basedir}/WebContent/WEB-INF/lib/aws-dynamodb-encryption.jar</systemPath>
+</dependency>
 		<!-- Spring security -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
@@ -123,39 +123,6 @@
 			<artifactId>bcprov-ext-jdk15on</artifactId>
 			<version>1.52</version>
 		</dependency>
-
-		<dependency>
-			<artifactId>aws-dnynamodb-encryption</artifactId>
-			<groupId>aws-dependency</groupId>
-			<scope>system</scope>
-			<version>1.0</version>
-			<systemPath>${basedir}/WebContent/WEB-INF/lib/aws-dynamodb-encryption.jar</systemPath>
-		</dependency>
-
-<!-- Rest service dependency -->
-
-<dependency>
-	<groupId>asm</groupId>
-	<artifactId>asm</artifactId>
-	<version>3.3.1</version>
-</dependency>
-<dependency>
-	<groupId>com.sun.jersey</groupId>
-	<artifactId>jersey-bundle</artifactId>
-	<version>1.19</version>
-</dependency>
-<dependency>
-	<groupId>org.json</groupId>
-	<artifactId>json</artifactId>
-	<version>20141113</version>
-</dependency>
-<dependency>
-	<groupId>com.sun.jersey</groupId>
-	<artifactId>jersey-server</artifactId>
-	<version>1.19</version>
-</dependency>
-
-
 
 	</dependencies>
 	<packaging>war</packaging>

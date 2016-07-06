@@ -38,14 +38,14 @@ function confirmDelete(actId,actNo,actRole,adGrp){
 
 <form:form id="ADGForm" method="get"
 	modelAttribute="adg">
-<div class="container-fluid">
- <table class="table table-hover table-striped">
+<div class="container-fluid well">
+ <table id="myTable" class="table table-hover tablesorter">
   <thead>
-  <tr class='heading'><th></th><th>AWS Account/User Name - Description</th> <th>Role</th> <th>AD Group</th><th>Last Modified</th> </tr></thead>
+  <tr class='heading'><th class="sorter-false"></th><th>AWS Account/User Name - Description</th> <th>Role</th> <th>AD Group</th><th>Last Modified</th> </tr></thead>
   <tbody>
   <c:forEach items="${adgs}" var="adg" varStatus="loopStatus">
   <tr class="${loopStatus.index % 2 == 0 ? 'even' : 'odd'}">
-  	<td nowrap><a><span class="glyphicon glyphicon-trash" onClick="confirmDelete('${adg.accountId}','${adg.accountNo}','${adg.role}','${adg.adGroup}');"></span></a></td>
+  	<td nowrap><a href="#"><span class="glyphicon glyphicon-trash" onClick="confirmDelete('${adg.accountId}','${adg.accountNo}','${adg.role}','${adg.adGroup}');"></span></a></td>
   	<td nowrap>${adg.accountNo}</td><td nowrap>${adg.role}</td>
   	<td nowrap>${adg.adGroup}</td>
   	<!-- td><input class="menu" type="button" value="Inactivate" onclick='deleteConfirm(${arp.id});'/></td-->
@@ -72,3 +72,4 @@ function confirmDelete(actId,actNo,actRole,adGrp){
  <form:hidden path="accountId" id="accountId"/>
 <form:hidden path="adGroup" id="adGroup"/>
 </form:form>
+

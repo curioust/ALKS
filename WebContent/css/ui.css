@@ -1,7 +1,7 @@
 /*  The styling of this document
 	is divided into 5 section:
 	Header, Menu, Messages, Content, and Footer
-*/
+*/ 
 
 /* Login Page */
 
@@ -395,15 +395,15 @@ table {
 }
 
 .odd {
-	background-color: #eeeaf2
+	background-color: #eeeaf2;
 }
-
+ 
 .even {
-	background-color: #FFFFFF
+	background-color: #FFFFFF;
 }
 
-#rotateLink {
-	text-decoration: underline;
+.innertable {
+	background-color: #fdfbca;
 }
 
 #awsAccountDetails {

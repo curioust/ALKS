@@ -1,17 +1,12 @@
 <%@ include file="commons/include.jsp"%>
 <script src="../lib/sweet-alert.min.js"></script>
 <link rel="stylesheet" type="text/css" href="../lib/sweet-alert.css">
-
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script type="text/javascript"
-	src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
-
+<link rel="stylesheet" type="text/css" href="../css/select2.css">
+<script type="text/javascript" src="../js/select2.full.js"></script>
 
 <c:url var="findRolesURL" value="getRoles.htm" />
 <script type="text/javascript">
-	$(document).ready(
-			function() {
+	$(document).ready(function() {
 				$('#accountNo11').change(
 						function() {
 							$.getJSON('${findRolesURL}', {
@@ -31,7 +26,11 @@
 							});
 
 						});
+				$('#accountNo').select2({
+					placeholder: "Select Account"
+				});
 			});
+
 </script>
 
 <script type="text/javascript">
@@ -101,6 +100,9 @@
 														}
 													});
 										});
+						$('#role').select2({
+							placeholder: "Select Role"
+						});
 					});
 
 	
@@ -152,7 +154,7 @@
 
     <div class="col-xs-7">
     <label  for="AccountNumber">Account Number*</label>
-					<form:select class="form-control" id="accountNo" path="accountNo">
+					<form:select class="form-control" id="accountNo" path="accountNo" name="accountNo">
 						<form:option value="NONE" label="Select Account" />
 						<form:options items="${accounts}" />
 					</form:select>

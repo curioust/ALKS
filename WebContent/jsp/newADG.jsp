@@ -1,12 +1,8 @@
 <%@ include file="commons/include.jsp"%>
 <script src="../lib/sweet-alert.min.js"></script>
 <link rel="stylesheet" type="text/css" href="../lib/sweet-alert.css">
-
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script type="text/javascript"
-	src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
-
+<link rel="stylesheet" type="text/css" href="../css/select2.css">
+<script type="text/javascript" src="../js/select2.full.js"></script>
 
 <c:url var="findRolesURL" value="getRoles.htm" />
 <c:url var="findAccountIdURL" value="getAccountId.htm" />
@@ -44,6 +40,10 @@
 														}
 													});
 										});
+						$('#accountNo').select2({
+							placeholder: "Select Account"
+						});
+						
 					});
 
 	$(document)
@@ -71,6 +71,13 @@
 														}
 													});
 										});
+						$('#roleField').select2({
+							placeholder: "Select Role"
+						});
+						
+						$('#adGroupField').select2({
+							placeholder: "Select Group"
+						});
 					});
 
 	//Enable AD group only after role is selected.
@@ -102,12 +109,14 @@
 			}
 		}
 	}
-</script>	
+	
+</script>	 
+
 
 <form:form id="ADGForm" action="add.htm" data-ajax="false" method="POST" modelAttribute="adg">
     <div class="col-xs-7">
     <label  for="AccountNumber">Account Number</label>
-					<form:select class="form-control" id="accountNo" path="accountNo">
+					<form:select class="form-control" id="accountNo" path="accountNo" name="accountNo">
 						<form:option value="NONE" label="Select Account " />
 						<form:options items="${accounts}" />
 					</form:select>
@@ -117,7 +126,7 @@
   </div>
   <div class="col-xs-7">
     <label for="AWS Role">AWS Role</label>
-					<form:select class="form-control" id="roleField" path="role">
+					<form:select class="form-control" id="roleField" path="role" name="roleField">
 						<form:option value="">Select Role</form:option>
 					</form:select>
   </div>
@@ -126,7 +135,7 @@
   </div>
   <div class="col-xs-7">
     <label for="AD Group">AD Group</label>
-					<form:select class="form-control" id="adGroupField" path="adGroup">
+					<form:select class="form-control" id="adGroupField" path="adGroup" name="adGroup">
 						<form:option value="">Select AD Group</form:option>
 						<form:options items="${adGroups}" />
 					</form:select>

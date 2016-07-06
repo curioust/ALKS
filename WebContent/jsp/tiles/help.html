@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Remote file for Bootstrap Modal</title>  
+</head>
+<body>
+	<div class="modal-content" >	
+    <div class="modal-header" style="background-color:#333333">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+         <h4 class="modal-title" style="color:white"><strong>Help/FAQ</strong></h4>
+    </div>			<!-- /modal-header -->
+      <div class="modal-body">
+       <p><span style="text-decoration: underline;"><strong><span class="s1">Use the steps below to access your AWS account through ALKS.</span></strong></span></p>
+        <ol>
+        <li><span class="s1">Log in with your email address and domain password</span></li>
+        <li><span class="s1">Select a &ldquo;Session Time&rdquo; from the dropdown in the 2nd Column.</span></li>
+        <li>Click on the &ldquo;Generate Keys&rdquo; button</li>
+        <li><span class="s1">A window will pop up with temporary keys to access the AWS account. These keys will expire according to&nbsp;the session time you picked in step 2.</span></li>
+        </ol>
+        <p><strong><span class="s1">Using the Access Key, Secret Key and Session Token for CLI access:</span></strong></p>
+        <p>When you run AWS CLI commands, the AWS CLI looks for credentials in a specific order&mdash;first in environment variables and then in the configuration file. Therefore, after you've put the temporary credentials into environment variables, the AWS CLI uses those credentials by default. (If you specify a <code class="code">profile</code> parameter in the command, the AWS CLI skips the environment variables and looks in the configuration file, which lets you override the credentials in the environment variables if you need to.)</p>
+        <p>&nbsp;</p>
+        <p>The following example shows how you might set the environment variables for temporary security credentials and then call an AWS CLI command. Because no <code class="code">profile</code> parameter is included in the AWS CLI command, the AWS CLI looks for credentials first in environment variables and therefore uses the temporary credentials.</p>
+        <p>&nbsp;</p>
+        <p><strong><span class="bold">Linux</span></strong></p>
+        <pre class="programlisting"><code class="nohighlight">export AWS_ACCESS_KEY_ID=AKIAI44QH8DHBEXAMPLE <br />export AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY <br />export AWS_SECURITY_TOKEN=AQoDYXdzEJr...&lt;remainder of security token&gt;&nbsp; <br /><br /><strong>Example AWS Command after environment variables are set:</strong><br />aws ec2 describe-instances --region us-east-1</code></pre>
+        <p>&nbsp;</p>
+        <p><span class="bold"><strong>Windows</strong></span></p>
+        <pre class="programlisting"><code class="nohighlight">SET AWS_ACCESS_KEY_ID=AKIAI44QH8DHBEXAMPLE <br />SET AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY <br />SET AWS_SECURITY_TOKEN=AQoDYXdzEJr...&lt;remainder of security token&gt;&nbsp; <br /><br /><code class="nohighlight"><strong>Example AWS Command after environment variables are set:</strong><br />aws ec2 describe-instances --region us-east-1</code></code></pre>
+        <p><span class="bold"><strong>REST call</strong></span></p>
+        <pre class="programlisting"><code class="nohighlight"><strong>Please change the USERID/PASSWORD and other values as needed:</strong><br /><div id='restcli'> curl -i -X POST -H "Content-Type:application/json" https://alks.coxautoinc.com/rest/getKeys/ -d '{"userid": "USERID","password": "PASSWORD","account":"193118345547/ALKS_NP_Admin - awscoxautolabs7","role":"IAM-1-AdministratorAccessRole-1E8MG35UGPDPH","sessionTime":2}' ></div>
+        	<code class="nohighlight"></code></code></pre>
+      </div>			<!-- /modal-body -->
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+    </div>
+   		<!-- /modal-footer -->
+  </div>
+</body>
+</html>
